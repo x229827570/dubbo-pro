@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--dubbo配置-->
+    <!--配置项目的名称 一般和项目名字相同-->
+    <dubbo:application name="dubbo-service"/>
+    <!--配置注册中心地址  这里用的是zookeeper-->
+    <!--ip通过ip add命令查看  端口号通过查看zookeeper的安装目录下的
+    /conf/zoo*.cfg的clientPort属性查看-->
+    <dubbo:registry address="zookeeper://192.168.79.128:2181"/>
+    <!--配置dubbo的注解扫描-->
+    <dubbo:annotation package="com.itheima.service.Impl"/>
+</beans>
